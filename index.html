@@ -4,14 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>GOT Video</title>
+  <title>Video with ES6</title>
   <link href="css/main.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 
   <section class="wrapper">
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/QwievZ1Tx-8?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>
-    </iframe>
+
+    <video autoplay muted loop>
+      <!--add sources here-->
+      <source src="video/mini_1.mp4" type="video/mp4">
+      <source src="video/mini_1.webm" type="video/webm">
+      <source src="video/mini_1.ogg" type="video/ogg">
+      Your browser does n't support video. Get with the kids and their new-fangled browsers.
+    </video>
+
   </section>
 
 <script src="js/script.js"></script>
