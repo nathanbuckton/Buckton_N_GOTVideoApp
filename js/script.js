@@ -1,37 +1,28 @@
 (() => {
-  console.log('video stuff fired!');
+  console.log()
 
-  const vidPlayer = document.querySelector('video'),
-        playButton = document.querySelectorAll('button')[0],
-        pauseButton = document.querySelectorAll('button')[1];
-        rewindButton = document.querySelectorAll('button')[2];
+  String.prototype.capIt = function(){ return this.replace(this.charAt(), this.charAt().toUpperCase()); };
+
+  const sigils = document.querySelectorAll('.sigilContainer'),
+        lightbox = document.querySelector('.lightbox'),
+        closeLightbox = document.querySelector('.close-lightbox'),
+        vidPlayer = document.querySelector('video');
+
+  function loadMovie(){
+    lightbox.classList.add('show-lightbox');
+
+  var house = this.className.split(' ')[1].capIt();
 
 
-  function volOn() {
-    vidPlayer.muted = false;
-  }
-
-  function volOff(){
-    vidPlayer.muted = true;
-  }
-
-  function rewindVid(){
-    vidPlayer.currentTime = 0;
-  }
-
-  function playVid(){
     vidPlayer.play();
   }
 
-  function pauseVid(){
+  function closeLBox(){
+    lightbox.classList.remove('show-lightbox');
     vidPlayer.pause();
+    vidPlayer.currentTime = 0;
   }
 
-  vidPlayer.addEventListener('mouseover', volOn);
-  vidPlayer.addEventListener('mouseout', volOff);
-
-  rewindButton.addEventListener('click', rewindVid);
-  playButton.addEventListener('click', playVid);
-  pauseButton.addEventListener('click', pauseVid);
-
+  sigils.forEach(sigil => sigil.addEventListener('click', loadMovie));
+  closeLightbox.addEventListener('click', closeLBox);
 })();
